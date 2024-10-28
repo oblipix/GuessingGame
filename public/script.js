@@ -97,7 +97,7 @@ function startMultiplayerGame() {
       const roomCode = `Sala ${roomSelection}`;
       const inviteLink = `http://seusite.com/multiplayer?room=${roomSelection}`;
 
-      socket = new WebSocket("ws://localhost:3000");
+      socket = new WebSocket("ws://guessgamingatt.vercel.app/");
 
       socket.onopen = () => {
         console.log("Conectado ao Servidor WebSocket");
