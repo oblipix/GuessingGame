@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jogo da Adivinhação</title>
     <link rel="stylesheet" href="./style.css" />
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="icon" href="./favicon/file.png" type="image/x-icon">
+
 </head>
 <body>
 
@@ -20,68 +19,42 @@
         <p id="score">Pontuação: 0</p> 
     </div>
 
+
+
     <!-- Modal do jogo -->
     <div id="game-modal" style="display: none;">
         <div class="modal-content">
             <div id="game-mode-selection">
                 <input type="text" id="username" placeholder="Seu nome ou username." />
-                <h2>Escolha o Modo de Jogo</h2>
-                <button id="solo-button" disabled>Jogo Solo</button>
-                <button id="multiplayer-button" disabled>Multiplayer</button>
-                <h3>Escolha seu Avatar</h3>
+                <h2>Jogo de Adivinhação</h2>
+                
+                <button id="solo-button" disabled>Iniciar</button>
+                    <h3>Escolha seu Avatar</h3>
                 <div id="avatar-selection">
-                    <img src="../avatares/1.png" alt="Avatar 1" class="avatar-option" />
-                    <img src="../avatares/2.png" alt="Avatar 2" class="avatar-option" />
-                    <img src="../avatares/3.png" alt="Avatar 3" class="avatar-option" />
-                    <img src="../avatares/4.png" alt="Avatar 4" class="avatar-option" />
-                    <img src="../avatares/5.png" alt="Avatar 5" class="avatar-option" />
-                    <img src="../avatares/6.png" alt="Avatar 6" class="avatar-option" />
-                </div>
+                        <div class="avatar-row">
+                            <img src="./avatares/1.png" alt="Avatar 1" class="avatar-option" />
+                            <img src="./avatares/2.png" alt="Avatar 2" class="avatar-option" />
+                            <img src="./avatares/3.png" alt="Avatar 3" class="avatar-option" />
+                            <img src="./avatares/4.png" alt="Avatar 4" class="avatar-option" />
+                            <img src="./avatares/5.png" alt="Avatar 5" class="avatar-option" />
+                            <img src="./avatares/6.png" alt="Avatar 6" class="avatar-option" />
+                        </div>
+                        <div class="avatar-row">
+                            <img src="./avatares/7.png" alt="Avatar 7" class="avatar-option" />
+                            <img src="./avatares/8.png" alt="Avatar 8" class="avatar-option" />
+                            <img src="./avatares/9.png" alt="Avatar 9" class="avatar-option" />
+                            <img src="./avatares/10.png" alt="Avatar 10" class="avatar-option" />
+                            <img src="./avatares/11.png" alt="Avatar 11" class="avatar-option" />
+                            <img src="./avatares/12.png" alt="Avatar 12" class="avatar-option" />
+                        </div>
+                    </div>
+                    
+                   </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal de seleção de sala -->
-    <div id="room-selection-modal" style="display: none;">
-        <div class="modal-content-room">
-            <h2>Escolha a Sala</h2>
-            <div id="room-buttons-container">
-                <!-- Repetir a estrutura das salas -->
-                <div class="room-container">
-                    <span class="room-label">Sala 1</span>
-                    <span class="room-status" id="room-status-1">0/6</span>
-                    <button class="enter-room-button" data-room="1">Entrar</button>
-                </div>
-                <div class="room-container">
-                    <span class="room-label">Sala 2</span>
-                    <span class="room-status" id="room-status-2">0/6</span>
-                    <button class="enter-room-button" data-room="2">Entrar</button>
-                </div>
-                <div class="room-container">
-                    <span class="room-label">Sala 3</span>
-                    <span class="room-status" id="room-status-3">0/6</span>
-                    <button class="enter-room-button" data-room="3">Entrar</button>
-                </div>
-                <div class="room-container">
-                    <span class="room-label">Sala 4</span>
-                    <span class="room-status" id="room-status-4">0/6</span>
-                    <button class="enter-room-button" data-room="4">Entrar</button>
-                </div>
-                <div class="room-container">
-                    <span class="room-label">Sala 5</span>
-                    <span class="room-status" id="room-status-5">0/6</span>
-                    <button class="enter-room-button" data-room="5">Entrar</button>
-                </div>
-                <div class="room-container">
-                    <span class="room-label">Sala 6</span>
-                    <span class="room-status" id="room-status-6">0/6</span>
-                    <button class="enter-room-button" data-room="6">Entrar</button>
-                </div>
-            </div>
-            <button id="cancel-room-selection-button">Cancelar</button>
-        </div>
-    </div>
-
+    
     <!-- Contêiner principal do jogo -->
     <div id="game-container">
         <h1>Jogo da Adivinhação</h1>
@@ -92,10 +65,17 @@
         <button id="restart-button" style="display: none;">Reiniciar</button>
     </div>
 
+
+
+
+
+
+
+
+
+
+
     <div id="confetti-container"></div>
-    
-    <!-- Incluindo o script do socket.io e o script principal -->
-    <script src="/socket.io/socket.io.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

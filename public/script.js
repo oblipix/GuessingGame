@@ -1,15 +1,12 @@
 let randomNumber;
 let attempts = 0;
 let previousGuesses = new Set();
-let socket;
-let isMultiplayer = false;
 let username = "";
 let avatarURL = "caminho/para/seu/avatar.jpg"; // Altere este caminho para o seu avatar padrão
 let score = 100;
 
 const guessButton = document.getElementById("guess-button");
 const soloButton = document.getElementById("solo-button");
-const multiplayerButton = document.getElementById("multiplayer-button");
 const guessInput = document.getElementById("guess-input");
 const usernameInput = document.getElementById("username");
 const gameModal = document.getElementById("game-modal");
@@ -21,7 +18,6 @@ const scoreDisplay = document.getElementById("score");
 const userInfoContainer = document.getElementById("user-info-container");
 const avatarElement = document.getElementById("avatar");
 const usernameDisplay = document.getElementById("p-username");
-const roomDisplay = document.getElementById("room-display"); // Elemento para exibir a quantidade de pessoas na sala
 
 const avatarOptions = document.querySelectorAll(".avatar-option");
 avatarOptions.forEach((avatar) => {
@@ -44,7 +40,6 @@ function checkInputs() {
   const usernameValid = usernameInput.value.trim().length > 2;
   const avatarSelected = avatarURL !== "caminho/para/seu/avatar.jpg";
   soloButton.disabled = !(usernameValid && avatarSelected);
-  multiplayerButton.disabled = !(usernameValid && avatarSelected);
 }
 
 // Função para exibir o nome de usuário
@@ -65,12 +60,11 @@ function displayedUsername() {
 function startSoloGame() {
   if (!displayedUsername()) return; // Verifica se o nome de usuário é válido
   randomNumber = Math.floor(Math.random() * 100) + 1;
-  attempts = 0;
+  attempts = 0; // Reinicia o contador de tentativas
   previousGuesses.clear();
   score = 100;
   updateScoreDisplay();
-  isMultiplayer = false;
-  attemptsDisplay.innerText = `Tentativas: ${attempts}`;
+  attemptsDisplay.innerText = `Tentativas: ${attempts}`; // Atualiza a exibição das tentativas
   resultMessage.innerText = "";
   guessInput.value = "";
   restartButton.style.display = "none";
@@ -78,84 +72,20 @@ function startSoloGame() {
   gameModal.style.display = "none"; // Esconder o modal do jogo solo
 }
 
-// Função para iniciar o jogo multiplayer
-function startMultiplayerGame() {
-  const username = displayedUsername();
-  if (!username) return; // Verifica se o nome de usuário é válido
-
-  isMultiplayer = true;
-  previousGuesses.clear();
-
-  // Mostrar o modal de seleção de sala
-  const roomSelectionModal = document.getElementById("room-selection-modal");
-  roomSelectionModal.style.display = "block"; // Exibir modal de seleção de sala
-
-  const roomButtons = document.querySelectorAll(".enter-room-button");
-  roomButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      const roomSelection = button.getAttribute("data-room");
-      const roomCode = `Sala ${roomSelection}`;
-      const inviteLink = `http://seusite.com/multiplayer?room=${roomSelection}`;
-
-      socket = new WebSocket("https://guessgamingatt.vercel.app/");
-
-      socket.onopen = () => {
-        console.log("Conectado ao Servidor WebSocket");
-        socket.send(JSON.stringify({ type: "joinRoom", room: roomCode, username }));
-        alert(`Link de convite: ${inviteLink}`);
-      };
-
-      socket.onmessage = (event) => {
-        const message = JSON.parse(event.data);
-        if (message.type === "result") {
-          attempts++;
-          handleGuessResult(message);
-        } else if (message.type === "feedback") {
-          attempts++;
-          attemptsDisplay.innerText = `Tentativas: ${attempts}`;
-          resultMessage.innerText = message.message;
-        } else if (message.type === "roomUpdate") {
-          // Atualiza a quantidade de pessoas na sala
-          const currentPlayers = message.currentPlayers;
-          const maxPlayers = 6;
-          roomDisplay.innerText = `${currentPlayers}/${maxPlayers}`; // Atualiza o display da sala
-        }
-      };
-
-      socket.onclose = () => {
-        console.log("Conexão WebSocket fechada");
-      };
-
-      socket.onerror = (error) => {
-        console.error("Erro WebSocket:", error);
-      };
-
-      roomSelectionModal.style.display = "none"; // Esconder modal de seleção de sala
-      gameModal.style.display = "none"; // Esconder modal de jogo
-    });
-  });
-
-  // Cancelar seleção de sala
-  const cancelRoomSelectionButton = document.getElementById("cancel-room-selection-button");
-  cancelRoomSelectionButton.addEventListener("click", () => {
-    roomSelectionModal.style.display = "none"; // Esconder modal de seleção de sala
-    gameModal.style.display = "block"; // Mostrar modal de jogo novamente
-  });
-}
-
 // Função para lidar com o resultado do palpite
-function handleGuessResult(message) {
-  if (message.correct) {
-    attempts++;
+function handleGuessResult(userGuess) {
+  attempts++; // Incrementa o número de tentativas
+  attemptsDisplay.innerText = `Tentativas: ${attempts}`; // Atualiza a exibição das tentativas
+
+  if (userGuess === randomNumber) {
     score = Math.max(0, score - (attempts * 2));
     updateScoreDisplay();
-    resultMessage.innerHTML = message.message.includes(username)
-      ? `Parabéns! Você adivinhou o número ${Array.from(previousGuesses).pop()} em ${attempts} tentativas!`
-      : `Infelizmente, não foi dessa vez. ${message.message.split(" ")[0]} acertou o número.`;
+    resultMessage.innerText = `Parabéns! Você adivinhou o número ${randomNumber} em ${attempts} tentativas!`;
     endGame();
   } else {
-    attempts++;
-    resultMessage.innerText = message.hint;
+    score = Math.max(0, score - (attempts * 2));
+    updateScoreDisplay();
+    resultMessage.innerText = userGuess < randomNumber ? "Tente um número maior!" : "Tente um número menor!";
   }
 }
 
@@ -210,18 +140,6 @@ function createEmoji() {
   }, 3000); // Ajuste o tempo conforme necessário
 }
 
-// Função para gerar uma mensagem motivacional aleatória
-function getRandomMotivationalMessage() {
-  const messages = [
-    "Continue tentando!",
-    "Você consegue!",
-    "Não desista!",
-    "Apenas mais uma tentativa!",
-    "Acredite em você!",
-  ];
-  return messages[Math.floor(Math.random() * messages.length)];
-}
-
 // Evento de clique no botão de adivinhar
 guessButton.addEventListener("click", () => {
   const userGuess = parseInt(guessInput.value);
@@ -230,38 +148,21 @@ guessButton.addEventListener("click", () => {
     return;
   }
 
-  if (isMultiplayer) {
-    if (previousGuesses.has(userGuess)) {
-      resultMessage.innerText = "Você já colocou esse palpite, tente outro.";
-      return;
-    }
-    previousGuesses.add(userGuess);
-    socket.send(JSON.stringify({ type: "guess", guess: userGuess, username }));
-  } else {
-    attempts++;
-    attemptsDisplay.innerText = `Tentativas: ${attempts}`;
-    if (userGuess === randomNumber) {
-      resultMessage.innerText = `Parabéns! Você adivinhou o número ${randomNumber} em ${attempts} tentativas!`;
-      endGame();
-    } else {
-      score = Math.max(0, score - (attempts * 2));
-      updateScoreDisplay();
-      resultMessage.innerText = userGuess < randomNumber ? "Tente um número maior!" : "Tente um número menor!";
-    }
+  if (previousGuesses.has(userGuess)) {
+    resultMessage.innerText = "Você já colocou esse palpite, tente outro.";
+    return;
   }
+  previousGuesses.add(userGuess);
+  handleGuessResult(userGuess);
 });
 
 // Evento de clique no botão de reiniciar
 restartButton.addEventListener("click", () => {
-  if (isMultiplayer) {
-    socket.close(); // Fechar a conexão WebSocket ao reiniciar o jogo
-  }
   startSoloGame();
 });
 
-// Eventos de clique para iniciar jogos solo e multiplayer
+// Evento de clique para iniciar jogos solo
 soloButton.addEventListener("click", startSoloGame);
-multiplayerButton.addEventListener("click", startMultiplayerGame);
 
 // Mostrar o modal inicial ao carregar a página
 window.onload = () => {
