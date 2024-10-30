@@ -2,7 +2,12 @@
 
 
 
-https://github.com/user-attachments/assets/1442f352-03bc-4e74-839a-3eef119ef6c5
+
+
+https://github.com/user-attachments/assets/737d936f-d0cc-4bc7-a464-53898bd09652
+
+
+
 
 
 
@@ -19,9 +24,14 @@ https://github.com/user-attachments/assets/1442f352-03bc-4e74-839a-3eef119ef6c5
 
 **Descrição**
 
-O Jogo de Adivinhação de Números é um jogo interativo onde o jogador deve adivinhar um número aleatório gerado pelo sistema entre 1 e 100. O jogo fornece feedback imediato sobre as tentativas do jogador, incentivando-o a continuar até que o número correto seja encontrado. Com mensagens motivacionais e um visual atrativo, o jogo mantém o jogador engajado e oferece uma experiência divertida e desafiadora.
+O Jogo de Adivinhação de Números é um jogo interativo onde o jogador deve adivinhar um número aleatório gerado pelo sistema entre 1 e 100. O jogo fornece feedback imediato sobre as tentativas do jogador, incentivando-o a continuar até que o número correto seja encontrado. Com mensagens motivacionais e um visual atrativo, o jogo mantém o jogador engajado e oferece uma experiência divertida e desafiadora. 
+
+
+
 
 **Funcionalidades**
+
+◾ Inicialização: O jogo só inicia após o usuário colocar um nome/nickame e selecionar o seu avatar.
 
 ◾ Adivinhação de Número:  O jogador tenta adivinhar um número aleatório entre 1 e 100.
 
@@ -34,6 +44,12 @@ O Jogo de Adivinhação de Números é um jogo interativo onde o jogador deve ad
 ◾ Emojis Festivos: Um emoji festivo é exibido quando o jogador adivinha corretamente o número, junto com uma animação de confetes.
 
 ◾ Botão de Reinício: Após adivinhar o número corretamente, o jogador pode reiniciar o jogo para tentar novamente.
+
+◾ Avatares: O jogo tem seleção de avatares para ficar mais divertido.
+
+◾ Input para inserção de Nome ou Nickname: Para ficar mais personalizado.
+
+◾ Pontuação: Após adivinhar o número incorreto a pontuação vai diminuindo.
 
 
 
