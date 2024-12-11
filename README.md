@@ -4,10 +4,7 @@
 ## 🎲 Jogo de Adivinhação de Números
 
 
-**deploy:** https://guessing-game-navy.vercel.app/
 
-
-**Descrição**
 
 O Jogo de Adivinhação de Números é um jogo interativo onde o jogador deve adivinhar um número aleatório gerado pelo sistema entre 1 e 100. O jogo fornece feedback imediato sobre as tentativas do jogador, incentivando-o a continuar até que o número correto seja encontrado. Com mensagens motivacionais e um visual atrativo, o jogo mantém o jogador engajado e oferece uma experiência divertida e desafiadora. 
 
@@ -17,6 +14,7 @@ O Jogo de Adivinhação de Números é um jogo interativo onde o jogador deve ad
 
 https://github.com/user-attachments/assets/737d936f-d0cc-4bc7-a464-53898bd09652
 
+**deploy:** https://guessing-game-navy.vercel.app/
 
 
 
