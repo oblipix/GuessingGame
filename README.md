@@ -1,6 +1,17 @@
 
 
 
+## 🎲 Jogo de Adivinhação de Números
+
+
+**deploy:** https://guessing-game-navy.vercel.app/
+
+
+**Descrição**
+
+O Jogo de Adivinhação de Números é um jogo interativo onde o jogador deve adivinhar um número aleatório gerado pelo sistema entre 1 e 100. O jogo fornece feedback imediato sobre as tentativas do jogador, incentivando-o a continuar até que o número correto seja encontrado. Com mensagens motivacionais e um visual atrativo, o jogo mantém o jogador engajado e oferece uma experiência divertida e desafiadora. 
+
+
 
 
 
@@ -16,20 +27,11 @@ https://github.com/user-attachments/assets/737d936f-d0cc-4bc7-a464-53898bd09652
 
 
 
-## Jogo de Adivinhação de Números
-
-
-**deploy:** https://guessing-game-navy.vercel.app/
-
-
-**Descrição**
-
-O Jogo de Adivinhação de Números é um jogo interativo onde o jogador deve adivinhar um número aleatório gerado pelo sistema entre 1 e 100. O jogo fornece feedback imediato sobre as tentativas do jogador, incentivando-o a continuar até que o número correto seja encontrado. Com mensagens motivacionais e um visual atrativo, o jogo mantém o jogador engajado e oferece uma experiência divertida e desafiadora. 
+___
 
 
 
-
-**Funcionalidades**
+## 📚 Funcionalidades
 
 ◾ Inicialização: O jogo só inicia após o usuário colocar um nome/nickame e selecionar o seu avatar.
 
@@ -52,9 +54,10 @@ O Jogo de Adivinhação de Números é um jogo interativo onde o jogador deve ad
 ◾ Pontuação: Após adivinhar o número incorreto a pontuação vai diminuindo.
 
 
+___
 
-## Como Clonar este Repositório
 
+## ⚙️ Como Clonar este Repositório
 
 
 ### Pré-requisitos:
@@ -73,18 +76,12 @@ O Jogo de Adivinhação de Números é um jogo interativo onde o jogador deve ad
 >
 > 
   
-  
-  ### Vamos clonar este repositório passo a passo. 
-
-  
-_Obtenha a URL do repositório:_
-
-` https://github.com/oblipix/GuessingGame.git `
+#### 📄 Estrutura do Projeto
 
 
+![Captura de tela 2024-12-11 093849](https://github.com/user-attachments/assets/d78f5edb-7496-4be5-9a77-8cb716031d9a)
 
 
-navegue até a pasta onde deseja clonar.
 
 **Clone o repositório:**
 
@@ -97,6 +94,12 @@ git clone https://github.com/oblipix/GuessingGame.git
 
 
 
+
+___
+
+
+## 📜 Licença
+Esse projeto está licenciado sob a MIT License.
 
 
 
