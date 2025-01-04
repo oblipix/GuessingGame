@@ -1,6 +1,6 @@
 body {
   font-family: "Arial", sans-serif;
-  background: linear-gradient(to bottom, #a8edea, #fed6e3);
+  background: linear-gradient(to bottom, var(--primary-color), var(--secundary-color));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -9,10 +9,20 @@ body {
   overflow: hidden; 
 }
 
+:root{
+  --primary-color: #c0c0c0;
+  --secundary-color: #f5f5f5;
+  --terciary-color: #ffffff;
+  --text-color-principal: #000000;
+  --text-color-secundary: #747474;
+  --text-color-terciary: #473400;
+  --color-button: #9dc1f7;
+}
+
 
 #game-container {
   position: relative;
-  background: white;
+  background: var(--terciary-color);
   padding: 30px;
   border-radius: 15px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.767);
@@ -20,7 +30,7 @@ body {
   text-align: center;
   transition: transform 0.3s, box-shadow 0.3s;
   height: 280px;
-  top: -20px;
+  top: 30px;
 }
 
 #game-container:hover {
@@ -31,7 +41,7 @@ body {
 /* Estilo para h2 */
 h2 {
   font-size: 27px; 
-  color: #333; 
+  color: var(--text-color-principal); 
   top: 20px;
   margin-bottom: 20px;
   position: relative; 
@@ -39,7 +49,7 @@ h2 {
   justify-content: center;
   text-align: center;
   font-weight: 500; 
-  text-shadow: 1px 1px 5px rgba(74, 144, 226, 0.5);
+  text-shadow: 1px 1px 5px var(--text-color-terciary);
 }
 
 h2::after {
@@ -47,7 +57,7 @@ h2::after {
   display: block; 
   width: 100%; 
   height: 4px; 
-  background: linear-gradient(to left, #fed6e3, #a8edea);
+  background: linear-gradient(to left, var(--primary-color), var(--secundary-color));
   position: absolute; 
   left: 0; 
   bottom: 0; 
@@ -60,10 +70,9 @@ h3 {
   top: 50px;
   padding-bottom: 10px;
   font-size: 18px; 
-  color: #555; 
+  color: var(--text-color-secundary); 
   margin-bottom: 15px; 
   font-weight: 500; 
-  text-shadow: 1px 1px 5px rgba(74, 144, 226, 0.5);
   text-align: center;
 }
 
@@ -72,7 +81,7 @@ h3::after {
   display: block; 
   width: 100%; 
   height: 4px; 
-  background: linear-gradient(to left, #fed6e3, #a8edea);
+  background: linear-gradient(to left, var(--primary-color), var(--secundary-color) );
   position: absolute; 
   left: 0; 
   bottom: 0; 
@@ -83,7 +92,7 @@ h3::after {
 
 h6 {
   font-size: 10px; 
-  color: #747474; 
+  color: var(--text-color-secundary); 
   top: 70px;
   margin-bottom: 20px;
   position: relative; 
@@ -94,16 +103,16 @@ h6 {
 }
 
 
-a {color: #747474;
+a {color: var(--text-color-secundary);
 }
 
 
 #guess-input{
   position: relative;
   font-size: 14px; 
-  color: #aaaaaa; 
+  color: var(--text-color-secundary); 
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.459); 
-  background-color: #ffff; 
+  background-color: var(--terciary-color); 
   transition: border-color 0.3s, box-shadow 0.3s;
   text-align: center;
   margin-top: 20px;
@@ -114,7 +123,7 @@ a {color: #747474;
 
 #guess-input:hover{
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.247); 
-  background-color: #ffff; 
+  background-color: var(--terciary-color); 
   transition: border-color 0.3s, box-shadow 0.3s;
 
 }
@@ -136,7 +145,7 @@ input[type="text"] {
   font-size: 16px; 
   color: #333; 
   box-shadow: 0 0 5px rgb(0, 0, 0); 
-  background-color: #ffff; 
+  background-color: var(--terciary-color); 
   transition: border-color 0.3s, box-shadow 0.3s; 
 }
 
@@ -149,19 +158,19 @@ input[type="text"]:focus {
 
 /* Estilo para o placeholder */
 input[type="text"]::placeholder {
-  color: #aaa;
+  color: var(--text-color-secundary);
   opacity: 1; 
   font-style: italic;
 }
 
 h1 {
-  color: #1bd6a8;
+  color: var(--text-color-principal);
   font-size: 24px;
   margin-bottom: 15px;
 }
 
 p {
-  color: #b4b4b4;
+  color: var(--text-color-secundary);
   margin-bottom: 10px;
 }
 
@@ -170,7 +179,7 @@ input[type="number"] {
   outline: none;
   padding: 10px;
   width: calc(100% - 20px);
-  border: 1px solid #ccc;
+  border: 1px solid var(--text-color-secundary);
   border-radius: 5px;
   margin-bottom: 15px;
   font-size: 16px;
@@ -179,8 +188,8 @@ input[type="number"] {
 
 button {
   position: relative;
-  background: linear-gradient(to bottom, #a8edea, #fed6e3);
-  color: rgb(255, 255, 255);
+  background-color:var(--color-button);
+  color: var(--terciary-color);
   border: none;
   padding: 10px 15px;
   margin: 5px;
@@ -197,13 +206,13 @@ button {
 }
 
 button:hover {
-  background: linear-gradient(to bottom, #fed6e3, #a8edea);
+  background-color:var(--color-button);
   transform: scale(1.05);
   
 }
 
 button:disabled {
-  background-color: #ccc;
+  background-color: var(--text-color-secundary);
   cursor: not-allowed;
 }
 
@@ -224,7 +233,7 @@ button:disabled {
 }
 
 .modal-content {
-  background-color: white; 
+  background-color: var(--terciary-color); 
   margin: auto; /* Centraliza o modal */
   padding: 20px;
   border-radius: 10px ; 
@@ -238,7 +247,7 @@ button:disabled {
 }
 
 .close-button {
-  color: #aaa;
+  color: var(--text-color-secundary);
   float: right; 
   font-size: 28px; 
   font-weight: bold;
@@ -252,7 +261,7 @@ button:disabled {
 
 #result-message {
   position: relative;
-  color: #f0c127;
+  color: var(--text-color-principal);
   top: -40px;
   font-weight: italic;
 }
@@ -260,7 +269,7 @@ button:disabled {
 #restart-button {
   position: relative;
   margin-left: 90px;
-  background-color: #f5f790;
+  background-color: var(--color-button);
   display: none; /* Mantém oculto inicialmente */
   width: 110px;
   position: relative;
@@ -269,37 +278,37 @@ button:disabled {
 }
 
 #restart-button:hover {
-  background-color: #f0c2f7;
-}
+  background-color: var(--color-button);}
 
 #user-info-container {
-  position: absolute;
+  position: fixed;
   top: -10px;
-  left: 10%;
+  left: 12%;
   transform: translateX(-50%);
   background-color: rgba(255, 255, 255, 0.8);
-  padding: 10px; 
+  padding: 20px; 
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;
+  height: 190px;
   
 }
 
 #attempts, #score {
   font-weight: bold;
-  margin: 5px 0; /* Espaçamento entre as linhas */
+  margin: 5px 0; 
 }
 
 #attempts {
   font-size: 14px;
-  color: #a3c6ec;
+  color: var(--text-color-principal);
 }
 
 #score {
   font-size: 14px;
-  color: #4CAF50;
+  color: var(--text-color-terciary);
 }
 
 #avatar-selection {
@@ -334,13 +343,13 @@ button:disabled {
 }
 
 .avatar-option:hover {
-  border: 2px solid #f0c127; 
+  border: 2px solid var(--color-button); 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   transform: scale(1.05);
 }
 
 .avatar-option.selected {
-  border-color: #a3c6ec; 
+  border-color: var(--color-button); 
   transform: scale(1.1); 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
@@ -352,7 +361,7 @@ button:disabled {
   border-radius: 50%;
   background-size: cover;
   background-position: center;
-  border-color: #a3c6ec; 
+  border-color: var(--color-button); 
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
@@ -370,7 +379,7 @@ button:disabled {
   position: absolute;
   width: 10px;
   height: 10px;
-  background-color: rgb(133, 206, 211); /* Cor padrão */
+  background-color: var(--text-color-principal); /* Cor padrão */
   opacity: 0.8;
   animation: fall linear forwards;
 }
@@ -389,13 +398,9 @@ button:disabled {
 
 
 
-
 /* Media query para telas de até 469px */
 @media (max-width: 469px) {
-
-
   body {
-   
     display: flex;
     justify-content: center;
     align-items: center;
@@ -403,33 +408,39 @@ button:disabled {
     margin: 0;
     overflow: hidden; 
   }
+
+  .modal-content {
+    margin-top: -50px;
+  }
   
-  #game-container {
-    width: 80%; 
-    padding: 20px;
+  #user-info-container {
+    top: -10px;
+    margin-left: 50px;
+    position: fixed;
   }
 
-    
-  #user-info-container{
-    margin-left: 25px;
-
-  }
-
-  
   /* Ajusta o título */
   h2 {
     font-size: 22px;
   }
 
+  #game-container {
+    width: 80%; 
+    padding: 20px;
+    top: 270px;
+    position: fixed;
+  }
+
   /* Ajusta o input e botão */
   #guess-input {
-    
+    font-size: 16px; 
+    width: 160px;
     margin: 10px 0;
-    right: 70px;
+    right: 50px;
   }
 
   #guess-button {
-    width: 30%; 
+    width: 24%; 
     left: 220px;
     margin-top: 10px;
   }
@@ -448,22 +459,21 @@ button:disabled {
 
   /* Ajusta o avatar */
   #avatar {
-   position: relative;
-  
+    position: relative;
     width: 50px;
     height: 50px;
   }
 
-#avatar-selection{
-  margin-top: 80px;
-}
+  #avatar-selection {
+    margin-top: 80px;
+  }
 
+  h6 {
+    position: relative;
+    top: 40px;
+    z-index: 1000;
+  }
 
-h6 {
-  position: relative;
-  top: 40px;
-  z-index: 1000;
-}
   .avatar-option {
     width: 40px;
     height: 40px;
@@ -471,27 +481,20 @@ h6 {
   }
 }
 
-
-
-
-
 /* Media query para telas de até 1024px */
 @media (max-width: 1024px) {
-
   .modal-content {
     position: relative;
     top: 150px;
     width: 80%; 
-    height: 480px; 
+    height: 510px; 
     padding: 30px;
   }
 
   h6 {
     right: 0%;
-   position: relative;
+    position: relative;
     margin-top: 50px;
     z-index: 1000;
   }
-
-
 }
