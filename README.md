@@ -45,8 +45,6 @@ ___
 
 ◾ Feedback Instantâneo: Após cada palpite, o jogo informa se o número adivinhado é maior ou menor que o número correto.
 
-◾ Mensagens Motivacionais: O jogador recebe mensagens motivacionais após tentativas erradas para incentivá-lo a continuar.
-
 ◾ Emojis Festivos: Um emoji festivo é exibido quando o jogador adivinha corretamente o número, junto com uma animação de confetes.
 
 ◾ Botão de Reinício: Após adivinhar o número corretamente, o jogador pode reiniciar o jogo para tentar novamente.
